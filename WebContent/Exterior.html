@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	.img {
+		width:500px;
+		height:auto;
+	}
+	
+	/* Style the tab buttons */
+	.tablink {
+	    background-color: #555;
+	    color: white;
+	    float: left;
+	    border: none;
+	    outline: none;
+	    cursor: pointer;
+	    padding: 14px 16px;
+	    font-size: 17px;
+	    width: 25%;
+	}
+	
+	/* Change background color of buttons on hover */
+	.tablink:hover {
+	    background-color: #777;
+	}
+	
+	/* Set default styles for tab content */
+	.tabcontent {
+	    color: white;
+	    display: none;
+	    padding: 50px;
+	    text-align: center;
+	}
+	
+</style>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sea Gull Exterior</title>
+<button class="tablink" onclick="openCity('Exterior', this, 'red')" id="defaultOpen">Exterior</button>
+<button class="tablink" onclick="openCity('Blank', this, 'green')">Blank</button>
+<button class="tablink" onclick="openCity('Blank', this, 'blue')">Blank</button>
+<button class="tablink" onclick="openCity('Blank', this, 'orange')">Blank</button>
+</head>
+<body>
+<h1 style="color:#F77D29; font-size:90px; text-align: center;">SEA GULL EXTERIOR</h1>
+<div style="text-align: center">
+<img class="img" src="images/concept-car-opel-side-open.jpg">
+<img class="img" src="images/concept-car-opel-back.jpg">
+<img class="img" src="images/concept-car-opel-front.jpg">
+<img class="img" src="images/concept-car-opel-side-closed.jpg">
+</div>
+</body>
+</html>
