@@ -6,48 +6,75 @@
 		height:auto;
 	}
 	
-	/* Style the tab buttons */
-	.tablink {
-	    background-color: #555;
-	    color: white;
-	    float: left;
-	    border: none;
-	    outline: none;
-	    cursor: pointer;
-	    padding: 14px 16px;
-	    font-size: 17px;
-	    width: 25%;
+	.header {
+	  overflow: hidden;
+	  background-color: #f1f1f1;
+	  padding: 20px 10px;
 	}
-	
-	/* Change background color of buttons on hover */
-	.tablink:hover {
-	    background-color: #777;
+
+	/* Style the header links */
+	.header a {
+	  float: left;
+	  color: black;
+	  text-align: center;
+	  padding: 12px;
+	  text-decoration: none;
+	  font-size: 18px; 
+	  line-height: 25px;
+	  border-radius: 4px;
 	}
-	
-	/* Set default styles for tab content */
-	.tabcontent {
-	    color: white;
-	    display: none;
-	    padding: 50px;
-	    text-align: center;
+
+	/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+	.header a.logo {
+	  font-size: 25px;
+	  font-weight: bold;
+	}
+
+	/* Change the background color on mouse-over */
+	.header a:hover {
+	  background-color: #ddd;
+	  color: black;
+	}
+
+	/* Style the active/current link*/
+	.header a.active {
+	  background-color: #64C0C2;
+	  color: white;
+	}
+
+	/* Float the link section to the right */
+	.header-right {
+	  float: right;
+	}
+
+	/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
+	@media screen and (max-width: 500px) {
+	  .header a {
+		float: none;
+		display: block;
+		text-align: left;
+	  }
+	  .header-right {
+		float: none;
+	  }
 	}
 	
 </style>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sea Gull Exterior</title>
-<button class="tablink" onclick="openCity('Exterior', this, 'red')" id="defaultOpen">Exterior</button>
-<button class="tablink" onclick="openCity('Blank', this, 'green')">Blank</button>
-<button class="tablink" onclick="openCity('Blank', this, 'blue')">Blank</button>
-<button class="tablink" onclick="openCity('Blank', this, 'orange')">Blank</button>
+<div class="header">
+  <div class="header-right">
+    <a class="active" href="#home">Exterior</a>
+  </div>
+</div>
 </head>
 <body>
 <h1 style="color:#F77D29; font-size:90px; text-align: center;">SEA GULL EXTERIOR</h1>
 <div style="text-align: center">
-<img class="img" src="images/concept-car-opel-side-open.jpg">
-<img class="img" src="images/concept-car-opel-back.jpg">
-<img class="img" src="images/concept-car-opel-front.jpg">
-<img class="img" src="images/concept-car-opel-side-closed.jpg">
+<img class="img" src="images/Exterior/concept-car-opel-side-open.jpg">
+<img class="img" src="images/Exterior/concept-car-opel-back.jpg">
+<img class="img" src="images/Exterior/concept-car-opel-front.jpg">
+<img class="img" src="images/Exterior/concept-car-opel-side-closed.jpg">
 </div>
 </body>
 </html>
