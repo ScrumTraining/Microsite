@@ -61,21 +61,41 @@
 	
 </style>
 <head>
-<meta charset="ISO-8859-1">
-<div class="header">
-  <div class="header-right">
-	<a href="index.html">Exterior</a>
-    <a class="active" href="interior.html">Interior</a>
-  </div>
-</div>
+    <meta charset="ISO-8859-1">
+    <div class="header">
+        <div class="header-right">
+            <a href="index.html">Exterior</a>
+            <a class="active" href="interior.html">Interior</a>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            var dir = "images/Interior/";
+            var fileextension = ".jpg";
+            var i = "1";
+            $(function imageloop() {
+                //$('#theDiv').append('<img src="' + dir + i + fileextension + '" class="img"/>');
+                $('#theDiv').append('<img src="' + dir + i + fileextension + '" class="img" onerror = "this.style.display=\'none\'" />');
+                if (i == 100) {
+                }
+                else {
+                    i++;
+                    imageloop();
+                };
+            });
+        });
+    </script>
+
 </head>
 <body>
 <h1 style="color:#F77D29; font-size:90px; text-align: center;">SEA GULL INTERIOR</h1>
-<div style="text-align: center">
-<img class="img" src="images/Interior/interior-concept_01.jpg">
-<img class="img" src="images/Interior/interior-concept_02.jpg">
-<img class="img" src="images/Interior/interior-concept_03.jpg">
-<img class="img" src="images/Interior/interior-concept_05.jpg">
+<div id="theDiv" style="text-align: center">
+    <!--<img class="img" src="images/Interior/interior-concept_01.jpg">
+    <img class="img" src="images/Interior/interior-concept_02.jpg">
+    <img class="img" src="images/Interior/interior-concept_03.jpg">
+    <img class="img" src="images/Interior/interior-concept_05.jpg">-->
 </div>
 </body>
 </html>

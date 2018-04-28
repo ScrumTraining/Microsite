@@ -61,21 +61,41 @@
 	
 </style>
 <head>
-<meta charset="ISO-8859-1">
-<div class="header">
-  <div class="header-right">
-    <a class="active" href="index.html">Exterior</a>
-	<a href="interior.html">Interior</a>
-  </div>
-</div>
+    <meta charset="ISO-8859-1">
+    <div class="header">
+        <div class="header-right">
+            <a class="active" href="index.html">Exterior</a>
+            <a href="interior.html">Interior</a>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            var dir = "images/Exterior/";
+            var fileextension = ".jpg";
+            var i = "1";
+            $(function imageloop() {
+                $('#theDiv').append('<img src="' + dir + i + fileextension + '" class="img" onerror = "this.style.display=\'none\'" />');
+                if (i == 100) {
+                    //alert('loaded');
+                }
+                else {
+                    i++;
+                    imageloop(); 
+                };
+            });
+        });
+    </script>
+
 </head>
 <body>
 <h1 style="color:#F77D29; font-size:90px; text-align: center;">SEA GULL EXTERIOR</h1>
-<div style="text-align: center">
-<img class="img" src="images/Exterior/concept-car-opel-side-open.jpg">
-<img class="img" src="images/Exterior/concept-car-opel-back.jpg">
-<img class="img" src="images/Exterior/concept-car-opel-front.jpg">
-<img class="img" src="images/Exterior/concept-car-opel-side-closed.jpg">
+<div id="theDiv" style="text-align: center">
+    <!--<img class="img" src="images/Exterior/concept-car-opel-side-open.jpg">
+    <img class="img" src="images/Exterior/concept-car-opel-back.jpg">
+    <img class="img" src="images/Exterior/concept-car-opel-front.jpg">
+    <img class="img" src="images/Exterior/concept-car-opel-side-closed.jpg">-->
 </div>
 </body>
 </html>
