@@ -64,33 +64,51 @@
     <meta charset="ISO-8859-1">
     <div class="header">
         <div class="header-right">
-            <a class="active" href="index.html">Exterior</a>
-            <a href="interior.html">Interior</a>
-			<a href="more_information.html">More Information</a>
+            <a href="index.html">Exterior</a>
+			<a href="interior.html">Interior</a>
+            <a class="active" href="more_information.html">More Information</a>
         </div>
     </div>
 
-	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">
-		var request = new XMLHttpRequest();
-		request.open('GET', 'api/photo/exterior', true);
-        request.onload = function () {
-            var list = JSON.parse(request.response);
-            for (var i = 0; i < list.length; ++i ) {
-                $('#theDiv').append('<img src="' + list[i] + '" class="img" onerror = "this.style.display=\'none\'" />');
-			};
-		};
+		$('#submitform').on('submit', function(event){
 
-		request.send();
+			var obj = $('form').serializeJSON();
+
+			$.ajax({
+				type: 'POST',
+				url: 'http://192.168.2.220/Seagull/api/customer/Moreinfo',
+				dataType: 'json',
+				data: JSON.stringify(obj),
+				contentType : 'application/json',
+				success: function(data) {
+					alert(data)
+				}
+			});
+			event.stopPropagation();
+			return false;
+		});
     </script>
+	
 	
 
 </head>
 <body>
-<h1 style="color:#F77D29; font-size:90px; text-align: center;">SEA GULL EXTERIOR</h1>
-<div id="theDiv" style="text-align: center">
+<h1 style="color:#F77D29; font-size:90px; text-align: center;">MORE INFORMATION</h1>
+<div id="theDiv" style="text-align: left">
+	<form action="form" method="POST" name="form">
+        <p><label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name"></p>
 
+        <p><label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name"></p>
+		
+		<p><label for="email">Email:</label>
+        <input type="text" name="email" id="email"></p>
+
+        <input value="Submit" type="submit" id="submitform">
+    </form>
 </div>
 </body>
 </html>
