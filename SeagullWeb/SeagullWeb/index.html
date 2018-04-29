@@ -69,24 +69,20 @@
         </div>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">
-        $(window).load(function () {
-            var dir = "images/Exterior/";
-            var fileextension = ".jpg";
-            var i = "1";
-            $(function imageloop() {
-                $('#theDiv').append('<img src="' + dir + i + fileextension + '" class="img" onerror = "this.style.display=\'none\'" />');
-                if (i == 100) {
-                    //alert('loaded');
-                }
-                else {
-                    i++;
-                    imageloop(); 
-                };
-            });
-        });
+		var request = new XMLHttpRequest();
+		request.open('GET', '192.168.2.220\Seagull\api\photo\exterior', true);
+		request.onload = function() {
+			for( var i=0, max<request.length; ++i ) {
+				$('#theDiv').append('<img src="' request '" class="img" onerror = "this.style.display=\'none\'" />');
+			};
+		};
+
+		request.send();
     </script>
+	
 
 </head>
 <body>
