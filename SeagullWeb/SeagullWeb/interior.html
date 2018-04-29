@@ -72,19 +72,16 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(window).load(function () {
-            var dir = "images/Interior/";
-            var fileextension = ".jpg";
-            var i = "1";
-            $(function imageloop() {
-                //$('#theDiv').append('<img src="' + dir + i + fileextension + '" class="img"/>');
-                $('#theDiv').append('<img src="' + dir + i + fileextension + '" class="img" onerror = "this.style.display=\'none\'" />');
-                if (i == 100) {
-                }
-                else {
-                    i++;
-                    imageloop();
+            var request = new XMLHttpRequest();
+            request.open('GET', 'api/photo/interior', true);
+            request.onload = function () {
+                var list = JSON.parse(request.response);
+                for (var i = 0; i < list.length; ++i) {
+                    $('#theDiv').append('<img src="' + list[i] + '" class="img" onerror = "this.style.display=\'none\'" />');
                 };
-            });
+            };
+
+            request.send();
         });
     </script>
 

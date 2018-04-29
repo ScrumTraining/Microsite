@@ -73,10 +73,11 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">
 		var request = new XMLHttpRequest();
-		request.open('GET', '192.168.2.220\Seagull\api\photo\exterior', true);
-		request.onload = function() {
-			for( var i=0, max<request.length; ++i ) {
-				$('#theDiv').append('<img src="' request '" class="img" onerror = "this.style.display=\'none\'" />');
+		request.open('GET', 'api/photo/exterior', true);
+        request.onload = function () {
+            var list = JSON.parse(request.response);
+            for (var i = 0; i < list.length; ++i ) {
+                $('#theDiv').append('<img src="' + list[i] + '" class="img" onerror = "this.style.display=\'none\'" />');
 			};
 		};
 
