@@ -67,8 +67,8 @@
         <div class="header-right">
             <a href="index.html">Exterior</a>
 			<a href="interior.html">Interior</a>
-            <a class="active" href="more_information.html">More Information</a>
-			<a href="test_drive.html">Test Drive</a>
+			<a href="more_information.html">More Information</a>
+            <a class="active" href="test_drive.html">Test Drive</a>
         </div>
     </div>
 
@@ -78,7 +78,7 @@
 
 </head>
 <body>
-<h1 style="color:#F77D29; font-size:90px; text-align: center;">MORE INFORMATION</h1>
+<h1 style="color:#F77D29; font-size:90px; text-align: center;">TEST DRIVE</h1>
 <div id="theDiv" style="text-align: left">
 	<form name="myform" id="myform">
         <p><label for="first_name">First Name:</label>
@@ -89,6 +89,10 @@
 		
 		<p><label for="email">Email:</label>
         <input type="text" id="email"></p>
+		
+		<p><label for="zipcode">Zip Code:</label>
+        <input type="text" id="zipcode"></p>
+		
 
     </form>
 	<button type="submit" id="submitform">Submit</button>
@@ -102,12 +106,13 @@
                 var jsonData = {
                     firstName: $('#first_name').val(),
                     lastName: $('#last_name').val(),
-                    email: $('#email').val()
+                    email: $('#email').val(),
+					zipcode: $('#zipcode').val()
                 };
 
 			  $.ajax(
 				  {
-					  url: "api/customer/Moreinfo",
+					  url: "api/customer/TestDrive",
                       type: "POST",
                       data: jsonData,
                       success: function (data) {
