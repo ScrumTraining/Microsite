@@ -38,5 +38,34 @@ namespace SeagullWeb.Controllers
             File.AppendAllText(filepath, $"{request.FirstName},{request.LastName},{request.Email}\n");
             return true;
         }
+
+        [DataContract]
+        public class TestDriveRequest
+        {
+            [DataMember(Name = "firstName")]
+            public string FirstName { get; set; }
+            [DataMember(Name = "lastName")]
+            public string LastName { get; set; }
+            [DataMember(Name = "email")]
+            public string Email { get; set; }
+            [DataMember(Name = "zipcode")]
+            public string Zipcode { get; set; }
+        }
+
+        [HttpPost]
+        public Boolean TestDrive([FromBody]TestDriveRequest request)
+        {
+            if (!Directory.Exists(Settings.Default.BasePath + "/customer"))
+            {
+                Directory.CreateDirectory(Settings.Default.BasePath + "/customer");
+            }
+            var filepath = Settings.Default.BasePath + "/customer/testdrive.csv";
+            if (!File.Exists(filepath))
+            {
+                File.Create(filepath);
+            }
+            File.AppendAllText(filepath, $"{request.FirstName},{request.LastName},{request.Email},{request.Zipcode}\n");
+            return true;
+        }
     }
 }
