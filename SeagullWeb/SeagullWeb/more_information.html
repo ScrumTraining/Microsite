@@ -97,14 +97,21 @@
 
 		
 		$(document).ready(function () {
-		  $("#submitform").click(function (e) {
-			  var MyForm = JSON.stringify($("#myform").serializeArray());
-			  console.log(MyForm);
+            $("#submitform").click(function (e) {
+                var jsonData = {
+                    firstName: $('#first_name').val(),
+                    lastName: $('#last_name').val(),
+                    email: $('#email').val()
+                };
+
 			  $.ajax(
 				  {
-					  url: "http://192.168.2.220/Seagull/api/customer/Moreinfo",
-					  type: "POST",
-					  data: MyForm,
+					  url: "api/customer/Moreinfo",
+                      type: "POST",
+                      data: jsonData,
+                      success: function (data) {
+                          alert('Thank you');
+                      }
 					});
 			  e.preventDefault(); //STOP default action
 			});

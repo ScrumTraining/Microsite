@@ -35,7 +35,7 @@ namespace SeagullWeb.Controllers
             {
                 File.Create(filepath);
             }
-            File.AppendAllText(filepath, $"{request.FirstName},{request.LastName},{request.Email}");
+            File.AppendAllText(filepath, $"{request.FirstName},{request.LastName},{request.Email}\n");
             return true;
         }
     }
